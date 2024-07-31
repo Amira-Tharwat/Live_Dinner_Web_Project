@@ -1,0 +1,136 @@
+﻿@model Live_Dinner_3.ViewModel.MealViewModel
+@{
+    Layout = "_DashBoard";
+}
+
+<div class="dash-content">
+    <div class="dash-content">
+        <div class="overview">
+            <div class="title">
+             @*    <i class="uil uil-tachometer-fast-alt"></i> *@
+                <span class="text">Edit Meal</span>
+            </div>
+
+            <div>
+                <form method="post" asp-action="EditMeal" class="row" enctype="multipart/form-data" style="margin-left:300px ; margin-right:300px ">
+                    <input  type="hidden"
+                           asp-for="meal.Id"
+                           value="@Model.meal.Id"
+                           class="form-control"
+                           placeholder=""  />
+                    <div class="mb-3">
+                        <label for="" class="form-label">Meal Name</label>
+                        <input type="text"
+                               asp-for="meal.Name"
+                               value="@Model.meal.Name"
+                               class="form-control"
+                               placeholder="" />
+                        <span asp-validation-for="meal.Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Meal Description</label>
+                        <textarea type="text"
+                                  asp-for="meal.Description"
+                                  class="form-control"
+                                  placeholder="">@Model.meal.Description</textarea>
+                        <span asp-validation-for="meal.Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3 col-lg-6">
+                        <label for="" class="form-label">Meal Price</label>
+                        <input type="number"
+                               asp-for="meal.Price"
+                               class="form-control"
+                               value="@Model.meal.Price"
+                               placeholder=""></input>
+                        <span asp-validation-for="meal.Price" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 col-lg-12 d-flex align-items-center mt-4">
+                        <div class="form-check">
+                            @{
+                                if (Model.meal.Availability == true)
+                                {
+                                    <input class="form-check-input" type="checkbox" asp-for="meal.Availability" checked />
+                                }
+                                else
+                                {
+                                    <input class="form-check-input" type="checkbox" asp-for="meal.Availability" unchecked />
+
+                                }
+                            }
+                            <label class="form-check-label" asp-for="meal.Availability"> Availability </label>
+                        </div>
+
+
+                    </div>
+
+                    <div class="mb-3 col-lg-6">
+                        <label for="" asp-for="meal.ChefId" class="form-label">Chef</label>
+                        <select class="form-select "
+                                 asp-for="meal.ChefId" asp-items="@Model.chefs" >
+                        </select>
+                    </div>
+                    <div class="mb-3 col-lg-6">
+                        <label for="" class="form-label">Type</label>
+                        <select class="form-select "
+                                asp-for="meal.Type">
+                            @if (Model.meal.Type == "Breakfast")
+                            {
+                                <option >Select one</option>
+                                <option value="Breakfast" selected>Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner">Dinner</option>
+                                <option value="Drinks">Drinks</option>
+                            }
+                            else if (Model.meal.Type == "Lunch")
+                            {
+                                <option>Select one</option>
+                                <option value="Breakfast" >Breakfast</option>
+                                <option value="Lunch" selected>Lunch</option>
+                                <option value="Dinner">Dinner</option>
+                                <option value="Drinks">Drinks</option>
+                            }
+                            else if (Model.meal.Type == "Dinner")
+                            {
+                                <option>Select one</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch" >Lunch</option>
+                                <option value="Dinner" selected>Dinner</option>
+                                <option value="Drinks">Drinks</option>
+                            }
+                            else if (Model.meal.Type == "Drinks")
+                            {
+                                <option>Select one</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner" >Dinner</option>
+                                <option value="Drinks" selected>Drinks</option>
+                            }
+                            else
+                            {
+                                <option selected>Select one</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner" >Dinner</option>
+                                <option value="Drinks">Drinks</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for=meal.MealImg for="" class="form-label">Meal Image</label>
+                        <input asp-for="meal.MealImg" class="form-control" type="file" id="formFile">
+
+                    </div>
+
+
+
+                    <div class="submit-button text-center">
+                        <button class="btn btn-common" id="submit" type="submit">Submit</button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>

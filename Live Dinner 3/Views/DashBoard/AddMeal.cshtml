@@ -1,0 +1,85 @@
+﻿@model Live_Dinner_3.ViewModel.MealViewModel
+@{
+    Layout = "_DashBoard";
+}
+
+<div class="dash-content">
+    <div class="dash-content">
+        <div class="overview">
+            <div class="title">
+              @*   <i class="uil uil-tachometer-fast-alt"></i> *@
+                <span class="text">Adding Meal</span>
+            </div>
+
+            <div>
+                <form method="post" asp-action="AddMeal" class="row" enctype="multipart/form-data" style="margin-left:300px ; margin-right:300px ">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Meal Name</label>
+                        <input type="text"
+                              asp-for="meal.Name"
+                               class="form-control"
+                               placeholder="" />
+                        <span asp-validation-for="meal.Name" class="text-danger"></span>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Meal Description</label>
+                        <textarea type="text"
+                                  asp-for="meal.Description"
+                                  class="form-control"
+                                  placeholder=""></textarea>
+                        <span asp-validation-for="meal.Description" class="text-danger"></span>
+                    </div>
+                   
+                    <div class="mb-3 col-lg-6">
+                        <label for="" class="form-label">Meal Price</label>
+                        <input type="number"
+                               asp-for="meal.Price"
+                               class="form-control"
+                               placeholder=""></input>
+                        <span asp-validation-for="meal.Price" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 col-lg-12 d-flex align-items-center mt-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" asp-for="meal.Availability" />
+                            <label class="form-check-label" asp-for="meal.Availability"> Availability </label>
+                        </div>
+
+
+                    </div>
+
+                    <div class="mb-3 col-lg-6">
+                        <label for="" asp-for="meal.ChefId" class="form-label">Chef</label>
+                        <select class="form-select "
+                                asp-for="meal.ChefId" asp-items="@Model.chefs">
+                        </select>
+                    </div>
+                    <div class="mb-3 col-lg-6">
+                        <label for="" class="form-label">Type</label>
+                        <select class="form-select "
+                                asp-for="meal.Type">
+                            <option selected>Select one</option>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Dinner">Dinner</option>
+                            <option value="Drinks">Drinks</option>                           
+                        </select>
+                        <span asp-validation-for="meal.Type" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for=meal.MealImg for="" class="form-label">Meal Image</label>
+                        <input asp-for="meal.MealImg" class="form-control" type="file" id="formFile">
+
+                    </div>
+                 
+
+                    <div class="submit-button text-center">
+                        <button class="btn btn-common" id="submit" type="submit">Submit</button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>

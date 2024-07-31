@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Meal>
+@{
+    Layout = "_DashBoard";
+}
+
+<div class="dash-content">
+    <div class="overview">
+        <div class="title">
+          @*   <i class="uil uil-tachometer-fast-alt"></i> *@
+            <span class="text">All Meals</span>
+        </div>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td class="table-light">Id</td>
+                    <td class="table-light">Name</td>
+                    <td class="table-light">Description</td>
+                    <td class="table-light">Price</td>
+                    <td class="table-light">Type</td>
+                    <td class="table-light">Availability</td>
+                    <td class="table-light">Chef</td>
+                    <td class="table-light">Meal Image</td>
+
+
+                    <td class="table-light">operation</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Description</td>
+                        <td>@item.Price</td>
+                        <td>@item.Type</td>
+                        <td>@item.Availability</td>
+                        <td>@item.Chef.Name</td>
+                        
+                            
+                        
+                        <td><img src="~/MyImages/@item.ImgPath" width="70px" class="img-thumbnail rounded-circle" /></td>
+                        
+                        <td>
+
+
+                            <a class="btn btn-success" asp-action="EditMeal" asp-route-id="@item.Id" role="button">
+                                <span class="material-symbols-outlined">
+                                    Edit
+                                </span>
+                            </a>
+                            <a class="btn btn-danger " asp-action="DeleteMeal" asp-route-id="@item.Id" role="button">
+                                <span class="material-symbols-outlined">
+                                    Delete
+                                </span>
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+
+</div>

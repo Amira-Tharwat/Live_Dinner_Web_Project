@@ -1,0 +1,48 @@
+﻿@model Chef
+@{
+    Layout = "_DashBoard";
+}
+<div class="dash-content">
+    <div class="dash-content">
+        <div class="overview">
+            <div class="title">
+              @*   <i class="uil uil-tachometer-fast-alt"></i> *@
+                <span class="text">Edit Chef</span>
+            </div>
+
+            <div>
+                <form method="post" asp-action="EditChef" class="row" enctype="multipart/form-data" style="margin-left:300px ; margin-right:300px ">
+                    <div class="mb-3">
+                        <label asp-for=Name for="" class="form-label">Chef Name</label>
+                        <input type="text"
+                               asp-for="Name "
+                               value="@Model.Name"
+                               class="form-control"
+                               placeholder="" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for=Email for="" class="form-label">Chef Email</label>
+                        <textarea type="text"
+                                  asp-for="Email"
+                            
+                                  class="form-control"
+                                  placeholder=""> @Model.Email</textarea>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for=ChefImg for="" class="form-label">Chef Image</label>
+                        <input asp-for="ChefImg" class="form-control" type="file" id="formFile">
+
+                    </div>
+
+                    <div class="submit-button text-center">
+                        <button class="btn btn-common" id="submit" type="submit">Submit</button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,54 @@
+﻿@model Blog
+@{
+    Layout = "_DashBoard";
+}
+
+<div class="dash-content">
+    <div class="overview">
+        <div class="title">
+           
+            <span class="text">All Comments</span>
+        </div>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td class="table-light">Id</td>
+                    <td class="table-light">Name</td>
+                    <td class="table-light">Email</td>
+                    <td class="table-light">Comment</td>
+                    <td class="table-light">operation</td>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Comments)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>@item.Comment</td>
+                        
+                        <td>
+                            <a class="btn btn-danger " asp-action="DeleteComment" asp-route-id="@Model.Id" asp-route-comid="@item.Id" role="button">
+                                <span class="material-symbols-outlined">
+                                    Delete
+                                </span>
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+
+</div>

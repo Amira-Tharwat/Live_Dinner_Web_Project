@@ -1,0 +1,57 @@
+﻿@model Blog
+@{
+    Layout = "_DashBoard";
+}
+<div class="dash-content">
+    <div class="dash-content">
+        <div class="overview">
+            <div class="title" >
+              @*   <i class="uil uil-tachometer-fast-alt"></i> *@
+                <span class="text">Adding Blog</span>
+            </div>
+
+            <div>
+                <form method="post" asp-action="AddBlog" class="row" enctype="multipart/form-data" style="margin-left:300px ; margin-right:300px ">
+                    <div class="mb-3">
+                        <label asp-for=Title for="" class="form-label">Blog Title</label>
+                        <input type="text"
+                               asp-for="Title "
+                               class="form-control"
+                               placeholder="" />
+                               <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for=Author for="" class="form-label">Blog Author</label>
+                        <textarea type="text"
+                                  asp-for="Author"
+                                  class="form-control"
+                                  placeholder=""></textarea>
+                        <span asp-validation-for="Author" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for=Description for="" class="form-label">Blog Description</label>
+                        <textarea type="text"
+                                  asp-for="Description"
+                                  class="form-control"
+                                  placeholder=""></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for=BlogImg  class="form-label">Blog Image</label>
+                        <input asp-for="BlogImg" class="form-control" type="file" id="formFile">
+
+                    </div>
+
+                 
+
+            
+                    <div class="submit-button text-center">
+                        <button class="btn btn-common" id="submit" type="submit">Submit</button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>

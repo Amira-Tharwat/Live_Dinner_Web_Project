@@ -1,0 +1,156 @@
+﻿@model Reservation
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="~/css/DashBoardStyle/css/bootstrap.min.css">
+ <!-- Site CSS -->
+<link rel="stylesheet" href="~/css/DashBoardStyle/css/style.css">
+<!-- Pickadate CSS -->
+<link rel="stylesheet" href="~/css/DashBoardStyle/css/classic.css">
+<link rel="stylesheet" href="~/css/DashBoardStyle/css/classic.date.css">
+<link rel="stylesheet" href="~/css/DashBoardStyle/css/classic.time.css">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="~/css/DashBoardStyle/css/responsive.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="~/css/DashBoardStyle/css/custom.css"> 
+
+
+
+ <!-- Start All Pages -->
+<div class="all-page-title page-breadcrumb">
+	<div class="container text-center">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1>Reservation</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End All Pages -->
+<!-- Start Reservation -->
+
+<div class="reservation-box">
+	<div class="container">
+		<div class="overview">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="heading-title text-center">
+						<h2>Reservation</h2>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 col-xs-12">
+
+					<div class="contact-block">
+                        <form method="post" asp-controller="Pages" asp-action="AddReservation" class="row">
+                           
+						<div class="row">
+								
+								<div class="col-md-6">
+									<h3>Book a table</h3>
+									<div class="col-md-12">
+										<div class="form-group">
+											<input asp-for=Date class="datepicker picker__input form-control" type="text" placeholder="Select Date" >
+											<span asp-validation-for="Date" class="text-danger"></span>
+											
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="form-group">
+											<input asp-for=Time class="time form-control picker__input" type="text" placeholder="Select Time" >
+											<span asp-validation-for="Time" class="text-danger"></span>
+											<div class="help-block with-errors"></div>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="form-group">
+                                            <select asp-for=NumOfPersons class="custom-select d-block form-control" >
+												<option disabled selected>Select Person</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+											</select>
+											
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<h3>Contact Details</h3>
+
+
+									<div class="col-md-12">
+										<div class="form-group">
+
+                                           
+                                       <input type="text"
+                                       asp-for="Name "
+                                       class="form-control"
+                                       placeholder="Your Name" />
+											<span asp-validation-for="Name" class="text-danger"></span>
+									   </div>
+                                     </div>
+									<div class="col-md-12">
+										<div class="form-group">
+
+											<input type="text"
+                                           asp-for="Email"
+										  class="form-control"
+                                           placeholder=" Your Email" />
+											<span asp-validation-for="Email" class="text-danger"></span>
+										 </div>
+                                    </div>
+									<div class="col-md-12">
+										<div class="form-group">
+                                    
+                                      <input type="text"
+                                       asp-for="Number"
+                                       class="form-control"
+                                       placeholder="Your Phone Number" />
+											<span asp-validation-for="Number" class="text-danger"></span>
+									   </div>
+
+                                    </div>
+                                </div>
+
+
+								<div class="submit-button text-center">
+									<button class="btn btn-common" id="submit" type="submit">Book Table</button>
+									<div id="msgSubmit" class="h3 text-center hidden"></div>
+									<div class="clearfix"></div>
+								</div>
+				        </div>
+		                   
+		
+                        </form>
+
+                    </div>
+				</div>
+                
+			</div>
+			
+		</div>
+	</div>
+	<!-- End Reservation -->
+	
+
+	  <!-- ALL JS FILES -->
+	<script src="~/js/DashBoradScript/js/jquery-3.2.1.min.js"></script>
+	<script src="~/js/DashBoradScript/js/popper.min.js"></script>
+	<script src="~/js/DashBoradScript/js/bootstrap.min.js"></script>
+	<!-- ALL PLUGINS -->
+	<script src="~/js/DashBoradScript/js/jquery.superslides.min.js"></script>
+	<script src="~/js/DashBoradScript/js/images-loded.min.js"></script>
+	<script src="~/js/DashBoradScript/js/isotope.min.js"></script>
+	<script src="~/js/DashBoradScript/js/baguetteBox.min.js"></script> 
+	<script src="~/js/DashBoradScript/js/picker.js"></script> 
+	<script src="~/js/DashBoradScript/js/picker.date.js"></script>
+	<script src="~/js/DashBoradScript/js/picker.time.js"></script>
+	 <script src="~/js/DashBoradScript/js/legacy.js"></script>
+	<script src="~/js/DashBoradScript/js/form-validator.min.js"></script>
+	<script src="~/js/DashBoradScript/js/contact-form-script.js"></script>
+	<script src="~/js/DashBoradScript/js/custom.js"></script> 

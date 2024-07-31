@@ -1,0 +1,61 @@
+﻿@model  IEnumerable<Chef>
+@{
+    Layout = "_DashBoard";
+}
+
+<div class="dash-content">
+    <div class="overview">
+        <div class="title">
+          @*   <i class="uil uil-tachometer-fast-alt"></i> *@
+            <span class="text">All Chefs</span>
+        </div>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td class="table-light">Id</td>
+                    <td class="table-light">Name</td>
+
+                    <td class="table-light">Email</td>
+                    <td class="table-light">Image</td>
+
+                    <td class="table-light">operation</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                     <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td><img src="~/MyImages/@item.ImgPath" width="70px" class="img-thumbnail rounded-circle" /></td>
+                    <td>
+
+
+                        <a class="btn btn-success" asp-action="EditChef" asp-route-id="@item.Id"  role="button">
+                            <span class="material-symbols-outlined">
+                                Edit
+                            </span>
+                        </a>
+                        <a class="btn btn-danger " asp-action="DeleteChef" asp-route-id="@item.Id" role="button">
+                            <span class="material-symbols-outlined">
+                                Delete
+                            </span> 
+                        </a>
+                    </td>
+
+                </tr>
+                }
+               
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+
+</div> 
